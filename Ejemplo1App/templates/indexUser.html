@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    
+    <div class="encabezado text-center">
+        <h1>Bienvenido {{request.user.username}}</h1>
+        {%if messages%}
+            {%for message in messages%}
+                <div class="messages">
+                <h2>{{message}}</h2>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <h4>Lunes-Viernes : 11:00-13:30 y 16:00-20:30 <br> Sábado : 11:00-20:30 </h4> 
+    </div>
+    
+    <div class="jumbotron">
+        <h2> Servicio </h2>
+        <ul>
+            <li> Corte cabello</li>
+            <li> Tinte </li>
+            <li> Uñas </li>
+            <li> Maquillaje </li>
+            <li> Depilación </li>
+            <li> Peinado </li>
+        </ul>
+        <h7> * La cita rápida es solo para corte de cabello </h7>
+        <img src="{% static 'img/serv.jpg' %}" class="img img-thumbnail" alt="Cinque Terre">
+    </div>
+
+     <div class="jumbotron">
+        
+        <h3>Ubicados en:</h3>
+        <p>Hacienda de los Eucaliptos <br> 
+        valle de los arces esquina con valle de los coculos #216 <br>
+        Tlajomulco de Zuñiga, Guadalajara, Jal.</p>
+        
+    </div>
+
+{% endblock %}

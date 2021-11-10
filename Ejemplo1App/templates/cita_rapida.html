@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="CR">
+
+    {%if messages%}
+        {%for message in messages%}
+            <div class="messages">
+                <h2>{{message}}</h2>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form class="form-inline" action="{% url 'save_citaR' %}" method= "POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="form-group padd">
+        <label for="example-date-input" class="col-2 col-form-label">Fecha:</label>
+        <div class="col-10">
+            <input class="form-control" type="date" value="" name="date">
+        </div>
+    </div> <br> <br>
+    <div class="form-group padd">
+        <label for="example-time-input" class="col-2 col-form-label">Hora:</label>
+        <div class="col-10">
+            <input class="form-control" type="time" value="11:30:00" name="time">
+        </div>
+    </div> <br> <br>
+    <div class="checkbox">
+        <label><input type="checkbox">Términos y condiciones</label>
+    </div>
+    <br><br><button type="submit" class="btn btn-default">Aparta tu lugar</button>
+  </form>
+</div>
+{% endblock %}

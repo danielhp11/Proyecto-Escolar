@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+  {{register_form.errors}}
+
+  {%if messages%}
+    {%for message in messages%}
+        <div class="messages">
+        <h2>{{message}}</h2>
+        </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="formReg">
+    <form method="post" action="">
+      {% csrf_token %}
+      
+      {% for field in register_form %}
+        <div class="campo">
+          <label>{{field.label}}</label> <br>
+          {{field}} 
+        </div>
+      {% endfor %}
+
+      <input type="submit" value="Registrate" class="btnReg" />
+
+    </form>
+  </div>
+{% endblock %}

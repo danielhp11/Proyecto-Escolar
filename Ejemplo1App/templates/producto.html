@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="producto">
+    {% for producto in productos %}
+        <div class="fondProd">
+            {% if producto.image %}
+                <div class= "imgProd">
+                    <img src= "{{producto.image.url}}" />
+                </div>
+            {% endif %}
+
+            <div class= "infProd">
+                <h3>{{ producto.title }}</h3>
+                <p>{{ producto.description }}</p>
+                <p>Precio: <br>${{ producto.presio }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    
+
+</div>
+
+{% include 'pagination.html' %}
+
+{% endblock %}
